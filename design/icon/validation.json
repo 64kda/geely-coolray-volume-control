@@ -1,0 +1,27 @@
+{
+  "exports": [
+    {
+      "file": "volume-control.png",
+      "size": 512,
+      "transparent_corners": true
+    },
+    {
+      "file": "volume-control-1024.png",
+      "size": 1024,
+      "transparent_corners": true
+    },
+    {
+      "file": "volume-control-2048.png",
+      "size": 2048,
+      "transparent_corners": true
+    }
+  ],
+  "packaged_icons": [
+    "res/drawable-hdpi-v4/free_icon.png",
+    "res/drawable-hdpi-v4/icon.png",
+    "res/drawable-ldpi-v4/free_icon.png",
+    "res/drawable-ldpi-v4/icon.png",
+    "res/drawable-mdpi-v4/free_icon.png",
+    "res/drawable-mdpi-v4/icon.png"
+  ]
+}

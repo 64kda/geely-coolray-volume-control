@@ -1,0 +1,11 @@
+{
+  "status": "resource_drafts_not_applied_to_apk",
+  "strings": 91,
+  "arrays": 4,
+  "array_items": 30,
+  "missing_keys": [],
+  "removed_keys": [],
+  "placeholder_check": "passed",
+  "array_order": "preserved",
+  "scope": "all extracted string resources, including available library dialogs; hardcoded and external content require runtime inventory"
+}

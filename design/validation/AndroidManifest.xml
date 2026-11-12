@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Isolated resource compilation check. Not the application's manifest. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="local.volumecontrol.resourcescheck">
+    <uses-sdk android:minSdkVersion="18" android:targetSdkVersion="18" />
+    <application android:label="Resource draft validation" />
+</manifest>

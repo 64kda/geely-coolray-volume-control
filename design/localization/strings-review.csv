@@ -1,0 +1,92 @@
+﻿resource,original,existing_ru,proposed_ru
+store_picture_title,Save image,,Сохранение изображения
+store_picture_message,Allow Ad to store image in Picture gallery?,,Разрешить рекламе сохранить изображение в галерее?
+accept,Accept,,Разрешить
+decline,Decline,,Отмена
+create_calendar_title,Create calendar event,,Создание события
+create_calendar_message,Allow Ad to create a calendar event?,,Разрешить рекламе создать событие в календаре?
+auth_google_play_services_client_google_display_name,Google,,Google
+auth_google_play_services_client_facebook_display_name,Facebook,,Facebook
+cast_notification_connecting_message,Connecting to %1$s,,Подключение к %1$s
+cast_notification_connected_message,Connected to %1$s,,Подключено к %1$s
+cast_notification_disconnect,Disconnect,,Отключиться
+common_google_play_services_notification_ticker,Google Play services error,Ошибка сервисов Google Play,Ошибка сервисов Google Play
+common_google_play_services_notification_needs_update_title,An application requires an update for Google Play services.,Для работы приложения требуется обновить сервисы Google Play,Для работы приложения требуется обновить сервисы Google Play
+common_android_wear_notification_needs_update_text,%1$s requires an update to the Android Wear app.,"Чтобы продолжить работу с приложением ""%1$s"", обновите Android Wear","Чтобы продолжить работу с приложением ""%1$s"", обновите Android Wear"
+common_google_play_services_needs_enabling_title,An application requires Google Play services to be enabled.,Для работы приложения требуется включить сервисы Google Play,Для работы приложения требуется включить сервисы Google Play
+common_google_play_services_error_notification_requested_by_msg,Requested by %1$s,Источник запроса: %1$s,Источник запроса: %1$s
+common_google_play_services_install_title,Get Google Play services,Установите Сервисы Google Play,Установите Сервисы Google Play
+common_google_play_services_install_text_phone,"%1$s won't run without Google Play services, which are missing from your phone.","Для работы с приложением ""%1$s"" требуются сервисы Google Play, не установленные на вашем телефоне.","Для работы с приложением ""%1$s"" требуются сервисы Google Play, не установленные на вашем телефоне."
+common_google_play_services_install_text_tablet,"%1$s won't run without Google Play services, which are missing from your tablet.","Для работы с приложением ""%1$s"" требуются сервисы Google Play, не установленные на вашем планшете.","Для работы с приложением ""%1$s"" требуются сервисы Google Play, не установленные на вашем планшете."
+common_google_play_services_install_button,Get Google Play services,Установить,Установить
+common_google_play_services_enable_title,Enable Google Play services,Включите Сервисы Google Play,Включите Сервисы Google Play
+common_google_play_services_enable_text,%1$s won't work unless you enable Google Play services.,"Чтобы запустить приложение ""%1$s"", включите сервисы Google Play.","Чтобы запустить приложение ""%1$s"", включите сервисы Google Play."
+common_google_play_services_enable_button,Enable Google Play services,Включить,Включить
+common_google_play_services_update_title,Update Google Play services,Обновите Сервисы Google Play,Обновите Сервисы Google Play
+common_android_wear_update_title,Update Android Wear,Обновить Android Wear,Обновить Android Wear
+common_google_play_services_update_text,%1$s won't run unless you update Google Play services.,"Чтобы запустить приложение ""%1$s"", обновите сервисы Google Play.","Чтобы запустить приложение ""%1$s"", обновите сервисы Google Play."
+common_android_wear_update_text,%1$s won't run unless you update the Android Wear app.,"Чтобы запустить приложение ""%1$s"", обновите Android Wear.","Чтобы запустить приложение ""%1$s"", обновите Android Wear."
+common_google_play_services_updating_title,Google Play services are updating,Обновление сервисов Google Play…,Обновление сервисов Google Play…
+common_google_play_services_updating_text,"%1$s won't run without Google Play services, which are currently updating.","Сервисы Google Play, необходимые для работы с приложением ""%1$s"", в настоящий момент обновляются.","Сервисы Google Play, необходимые для работы с приложением ""%1$s"", в настоящий момент обновляются."
+common_google_play_services_network_error_title,Network Error,Ошибка сети,Ошибка сети
+common_google_play_services_network_error_text,A data connection is required to connect to Google Play services.,Для работы с Google Play требуется подключение к сети.,Для работы с Google Play требуется подключение к сети.
+common_google_play_services_invalid_account_title,Invalid Account,Недействительный аккаунт,Недействительный аккаунт
+common_google_play_services_invalid_account_text,The specified account does not exist on this device. Please choose a different account.,Этого аккаунта нет на устройстве. Выберите другой.,Этого аккаунта нет на устройстве. Выберите другой.
+common_google_play_services_unknown_issue,Unknown issue with Google Play services.,Неизвестная ошибка с Сервисами Google Play.,Неизвестная ошибка с Сервисами Google Play.
+common_google_play_services_unsupported_title,Google Play services,Сервисы Google Play,Сервисы Google Play
+common_google_play_services_unsupported_text,"%1$s relies on Google Play services, which is not supported by your device. Contact the manufacturer for assistance.","Сервисы Google Play, необходимые для работы с приложением ""%1$s"", не поддерживаются на вашем устройстве. Обратитесь к его производителю.","Сервисы Google Play, необходимые для работы с приложением ""%1$s"", не поддерживаются на вашем устройстве. Обратитесь к его производителю."
+common_google_play_services_update_button,Update,Обновить,Обновить
+common_signin_button_text,Sign in,Войти,Войти
+common_signin_button_text_long,Sign in with Google,Войти в аккаунт Google,Войти в аккаунт Google
+common_open_on_phone,Open on phone,Открыть на телефоне,Открыть на телефоне
+common_google_play_services_api_unavailable_text,%1$s requires one or more Google Play services that are not currently available. Please contact the developer for assistance.,"Сервисы Google Play, необходимые для работы с приложением ""%1$s"", недоступны. Свяжитесь с его разработчиком.","Сервисы Google Play, необходимые для работы с приложением ""%1$s"", недоступны. Свяжитесь с его разработчиком."
+common_google_play_services_sign_in_failed_title,Sign in failed,Ошибка входа,Ошибка входа
+common_google_play_services_sign_in_failed_text,Error signing in the specified account. Please choose a different account.,При входе в указанный аккаунт произошла ошибка. Выберите другой аккаунт.,При входе в указанный аккаунт произошла ошибка. Выберите другой аккаунт.
+wallet_buy_button_place_holder,Buy with Google,,Купить с помощью Google
+app_name,Volume control,Регулятор громкости,Регулятор громкости
+BtnShowIndicator,Enable indicator,Показать индикатор,Показать шкалу
+BtnHideIndicator,Disable indicator,Скрыть индикатор,Скрыть шкалу
+LabelGravity,Select alignment,Расположение,Положение шкалы
+LabelSize,Select size,Размер,Толщина шкалы
+LabelColor,Select color,Цвет,Цвет заполнения
+LabelBackgroundColor,Select background color,Цвет фона,Цвет фона шкалы
+LabelTransparensy,Adjust transparency,Прозрачность,Непрозрачность
+LabelRunAfterReboot,Start after reboot system,Запускать после перезагрузки,Запускать после перезагрузки
+PickColor,Pick a color,Выберите цвет,Выбор цвета
+LabelAutoHide,Auto hide indicator,Скрывать после использования,Скрывать шкалу после использования
+TextViewRed,Red,Красный,Красный
+TextViewGreen,Green,Зеленый,Зелёный
+TextViewBlue,Blue,Синий,Синий
+LabelSelectColorCircle,Сolor circle,Цветовой круг,Цветовой круг
+LabelApply,Apply,Принять,Применить
+LabelCancel,Cancel,Отменить,Отмена
+LabelBarType,Bar type,Тип ползунка,Вид шкалы
+StreamType,Volume control for,Регулировка громкости канала,Аудиоканал
+ShowNotification,Show system notification,Показать уведомление,Показывать системную панель громкости
+NotificationSound,Sound notification,Звуковое уведомление,Звук при изменении громкости
+LabelXPos,Horizontal offset,Сдвиг по горизонтали,Смещение по горизонтали
+LabelYPos,Vertical offset,Сдвиг по вертикали,Смещение по вертикали
+LabelOverlaySB,Overlay statusbar,Использовать строку состояния,Размещать поверх строки состояния
+LabelDonate,Donation!,Пожертвовать!,Поддержать разработчика
+DonateHTTP,http://www.rubberbigpepper.com/donation,http://ru.rubberbigpepper.com/donation,http://ru.rubberbigpepper.com/donation
+System,System,Система,Системные звуки
+Music,Music,Музыка,Музыка и мультимедиа
+Ring,Ring,Звонок,Звонок
+Alarm,Alarm,Будильник,Будильник
+Notification,Notifications,Уведомления,Уведомления
+VoiceCall,Voice call,Разговор,Разговор
+DTMF,DTMF,DTMF,Тоновый набор
+Equalizer,Equalizer,Эквалайзер,Эквалайзер
+Mixer,Mixer,Микшер,Микшер
+LabelActiveColor,Active color,Цвет активного окна,Цвет активной вкладки
+LabelInactiveColor,Inactive color,Цвет неактивного окна,Цвет неактивной вкладки
+Delay,1 second reaction delay after click down,Секундная пауза перед изменением громкости,Задержка перед регулировкой: 1 секунда
+Bass,Bass,Басы,Усиление басов
+Virtualizer,Virtualizer,Стереобаза,Расширение стереобазы
+Enable,Enable,Включить,Включить эквалайзер
+AdvDonation,Click on advertisement,Кликнуть на рекламу спонсоров,Реклама спонсоров
+PaypalDonation,Paypal/Google checkout donation,Пожертвовать через Paypal/Google checkout,Пожертвование через PayPal / Google Checkout
+BuyPro,Buy Pro version from Play market,Купить Pro версию в маркете,Купить версию Pro
+LabelEnableEqMix,Enable equalizer/mixer window,Включить окно эквалайзера/микшера,Разрешить окно эквалайзера и микшера
+ActionOn0Volume,Action for the volume decrease to 0,Действие при нулевой громкости,Режим звонка при нулевой громкости
+Length,Select length,Выберите длину,Длина шкалы

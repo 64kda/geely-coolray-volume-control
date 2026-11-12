@@ -1,0 +1,31 @@
+﻿array,index,original,proposed_ru
+Gravity,0,Left fill,Вдоль левого края
+Gravity,1,Top fill,Вдоль верхнего края
+Gravity,2,Right fill,Вдоль правого края
+Gravity,3,Bottom fill,Вдоль нижнего края
+Gravity,4,Left top,У левого края сверху
+Gravity,5,Left center,У левого края по центру
+Gravity,6,Left bottom,У левого края снизу
+Gravity,7,Top left,У верхнего края слева
+Gravity,8,Top center,У верхнего края по центру
+Gravity,9,Top right,У верхнего края справа
+Gravity,10,Right top,У правого края сверху
+Gravity,11,Right center,У правого края по центру
+Gravity,12,Right bottom,У правого края снизу
+Gravity,13,Bottom left,У нижнего края слева
+Gravity,14,Bottom center,У нижнего края по центру
+Gravity,15,Bottom right,У нижнего края справа
+TypeBar,0,Solid bar,Сплошная полоса
+TypeBar,1,Volume bar,Столбики уровня
+StreamType,0,Auto,Автовыбор
+StreamType,1,All streams,Все каналы
+StreamType,2,Music,Музыка и мультимедиа
+StreamType,3,System,Системные звуки
+StreamType,4,Ring,Звонок
+StreamType,5,Notification,Уведомления
+StreamType,6,Voice call,Разговор
+StreamType,7,Alarm,Будильник
+StreamType,8,DTMF,Тоновый набор
+ActionOn0Volume,0,none,Не менять режим
+ActionOn0Volume,1,vibro mode,Вибрация
+ActionOn0Volume,2,mute,Без звука

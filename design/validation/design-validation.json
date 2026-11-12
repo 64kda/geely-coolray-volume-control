@@ -1,0 +1,20 @@
+{
+  "original_controls": 23,
+  "documented_controls": 23,
+  "missing_controls": [],
+  "concepts": 3,
+  "concept_size": [
+    1920,
+    640
+  ],
+  "png_exports": 15,
+  "xml_and_svg_parse": "passed",
+  "png_integrity_and_density_sizes": "passed",
+  "api18_resource_compilation": "passed using SDK18 android.jar and aapt35; isolated resource draft only",
+  "apk_hashes": {
+    "app-v2.7.1.apk": "64b25aeaef78b398b14c6171df93d01e82bae9f34fda78277b7bc14c72f86d1f",
+    "app-second.apk": "64b25aeaef78b398b14c6171df93d01e82bae9f34fda78277b7bc14c72f86d1f"
+  },
+  "app_build": "not performed",
+  "api18_runtime": "not performed"
+}
