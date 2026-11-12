@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:id="@id/linearLayoutMain" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:id="@id/LinearLayout01" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:id="@id/RelativeLayout03" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp">
+                <TextView android:gravity="center_vertical" android:id="@id/TextView03" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="150.0sp" android:minWidth="150.0sp" android:text="@string/LabelSize" android:layout_alignTop="@id/SeekBarSize" android:layout_alignBottom="@id/SeekBarSize" />
+                <SeekBar android:id="@id/SeekBarSize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" android:layout_marginRight="2.0sp" android:max="90" android:layout_toRightOf="@id/TextView03" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/RelativeLayout01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp">
+                <TextView android:gravity="center_vertical" android:id="@id/TextViewColor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="150.0sp" android:minWidth="150.0sp" android:text="@string/LabelColor" android:layout_alignTop="@id/ImageViewColor" android:layout_alignBottom="@id/ImageViewColor" android:layout_centerVertical="true" />
+                <ImageView android:id="@id/ImageViewColor" android:layout_width="wrap_content" android:layout_height="60.0dp" android:layout_toRightOf="@id/TextViewColor" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/RelativeLayout02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp">
+                <TextView android:gravity="center_vertical" android:id="@id/TextViewTransparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="150.0sp" android:minWidth="150.0sp" android:text="@string/LabelTransparensy" android:layout_alignTop="@id/SeekBarTransparent" android:layout_alignBottom="@id/SeekBarTransparent" android:layout_centerVertical="true" />
+                <SeekBar android:id="@id/SeekBarTransparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" android:layout_marginRight="2.0sp" android:max="255" android:layout_toRightOf="@id/TextViewTransparent" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp">
+                <TextView android:gravity="center_vertical" android:id="@id/TextViewBackgroundColor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="150.0sp" android:minWidth="150.0sp" android:text="@string/LabelBackgroundColor" android:layout_alignTop="@id/ImageViewBackgroundColor" android:layout_alignBottom="@id/ImageViewBackgroundColor" android:layout_centerVertical="true" />
+                <ImageView android:id="@id/ImageViewBackgroundColor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxHeight="60.0sp" android:minHeight="60.0sp" android:layout_toRightOf="@id/TextViewBackgroundColor" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp">
+                <TextView android:gravity="center_vertical" android:id="@id/TextViewBackgroundTransparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="150.0sp" android:minWidth="150.0sp" android:text="@string/LabelTransparensy" android:layout_alignTop="@id/SeekBarBackgroundTransparent" android:layout_alignBottom="@id/SeekBarBackgroundTransparent" android:layout_centerVertical="true" />
+                <SeekBar android:id="@id/SeekBarBackgroundTransparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" android:layout_marginRight="2.0sp" android:max="255" android:layout_toRightOf="@id/TextViewBackgroundTransparent" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp">
+                <TextView android:gravity="center_vertical" android:id="@id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="150.0sp" android:minWidth="150.0sp" android:text="@string/LabelGravity" android:layout_alignTop="@id/SpinnerGravity" android:layout_alignBottom="@id/SpinnerGravity" />
+                <Spinner android:entries="@array/Gravity" android:id="@id/SpinnerGravity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/TextView01" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp">
+                <TextView android:gravity="center_vertical" android:layout_width="150.0sp" android:layout_height="wrap_content" android:text="@string/Length" />
+                <SeekBar android:id="@id/SeekBarLeng" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" android:layout_marginRight="2.0sp" android:max="130" android:layout_weight="1.0" android:layout_alignParentRight="true" />
+            </LinearLayout>
+            <CheckBox android:id="@id/CheckBoxFullScreen" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/LabelOverlaySB" />
+            <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp">
+                <TextView android:id="@id/TextViewXPos" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="150.0sp" android:text="@string/LabelXPos" android:layout_centerVertical="true" />
+                <EditText android:id="@id/EditTextXPos" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_toRightOf="@id/TextViewXPos" android:layout_alignParentRight="true" android:inputType="numberSigned" />
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp">
+                <TextView android:id="@id/TextViewYPos" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="150.0sp" android:text="@string/LabelYPos" android:layout_centerVertical="true" />
+                <EditText android:id="@id/EditTextYPos" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_toRightOf="@id/TextViewYPos" android:layout_alignParentRight="true" android:inputType="numberSigned" />
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp">
+                <TextView android:gravity="center_vertical" android:id="@id/TextView02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="150.0sp" android:minWidth="150.0sp" android:text="@string/LabelBarType" android:layout_alignTop="@id/SpinnerType" android:layout_alignBottom="@id/SpinnerType" />
+                <Spinner android:entries="@array/TypeBar" android:id="@id/SpinnerType" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/TextView02" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/RelativeLayout01" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp">
+                <TextView android:gravity="center_vertical" android:id="@id/TextViewStreamType" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="150.0sp" android:minWidth="150.0sp" android:text="@string/StreamType" android:layout_alignTop="@id/SpinnerStreamType" android:layout_alignBottom="@id/SpinnerStreamType" />
+                <Spinner android:entries="@array/StreamType" android:id="@id/SpinnerStreamType" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/TextViewStreamType" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <LinearLayout android:orientation="horizontal" android:id="@id/LinearLayoutActionOn0Volume" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp">
+                <TextView android:gravity="center_vertical" android:layout_gravity="center_vertical" android:layout_width="150.0sp" android:layout_height="wrap_content" android:text="@string/ActionOn0Volume" />
+                <Spinner android:entries="@array/ActionOn0Volume" android:id="@id/SpinnerActionOn0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" />
+            </LinearLayout>
+            <CheckBox android:id="@id/CheckBoxShowNotification" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ShowNotification" />
+            <CheckBox android:id="@id/CheckBoxNotificationSound" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/NotificationSound" />
+            <CheckBox android:id="@id/CheckBoxDelay" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/Delay" />
+            <CheckBox android:id="@id/CheckBoxAutoHide" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/LabelAutoHide" />
+            <CheckBox android:id="@id/CheckBoxEnableEqMix" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/LabelEnableEqMix" />
+            <LinearLayout android:orientation="vertical" android:id="@id/linearLayoutEqMixSettings" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp">
+                    <TextView android:gravity="center_vertical" android:id="@id/TextViewActiveColor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="150.0sp" android:minWidth="150.0sp" android:text="@string/LabelActiveColor" android:layout_alignTop="@id/ImageViewActiveColor" android:layout_alignBottom="@id/ImageViewActiveColor" android:layout_centerVertical="true" />
+                    <ImageView android:id="@id/ImageViewActiveColor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxHeight="60.0sp" android:minHeight="60.0sp" android:layout_toRightOf="@id/TextViewActiveColor" android:layout_alignParentRight="true" />
+                </RelativeLayout>
+                <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp">
+                    <TextView android:gravity="center_vertical" android:id="@id/TextViewActiveTransparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="150.0sp" android:minWidth="150.0sp" android:text="@string/LabelTransparensy" android:layout_alignTop="@id/SeekBarActiveTransparent" android:layout_alignBottom="@id/SeekBarActiveTransparent" android:layout_centerVertical="true" />
+                    <SeekBar android:id="@id/SeekBarActiveTransparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" android:layout_marginRight="2.0sp" android:max="255" android:layout_toRightOf="@id/TextViewActiveTransparent" android:layout_alignParentRight="true" />
+                </RelativeLayout>
+                <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp">
+                    <TextView android:gravity="center_vertical" android:id="@id/TextViewInactiveColor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="150.0sp" android:minWidth="150.0sp" android:text="@string/LabelInactiveColor" android:layout_alignTop="@id/ImageViewInactiveColor" android:layout_alignBottom="@id/ImageViewInactiveColor" android:layout_centerVertical="true" />
+                    <ImageView android:id="@id/ImageViewInactiveColor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxHeight="60.0sp" android:minHeight="60.0sp" android:layout_toRightOf="@id/TextViewInactiveColor" android:layout_alignParentRight="true" />
+                </RelativeLayout>
+                <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp">
+                    <TextView android:gravity="center_vertical" android:id="@id/TextViewInactiveTransparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="150.0sp" android:minWidth="150.0sp" android:text="@string/LabelTransparensy" android:layout_alignTop="@id/SeekBarInactiveTransparent" android:layout_alignBottom="@id/SeekBarInactiveTransparent" android:layout_centerVertical="true" />
+                    <SeekBar android:id="@id/SeekBarInactiveTransparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dp" android:layout_marginRight="2.0sp" android:max="255" android:layout_toRightOf="@id/TextViewInactiveTransparent" android:layout_alignParentRight="true" />
+                </RelativeLayout>
+            </LinearLayout>
+            <CheckBox android:id="@id/CheckBoxRunAfterReboot" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/LabelRunAfterReboot" />
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:orientation="vertical" android:id="@id/LinearLayoutButtons" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+        <LinearLayout android:orientation="horizontal" android:id="@id/LinearLayoutButtonsInternal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <Button android:id="@id/ButtonStart" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/BtnShowIndicator" android:layout_weight="1.0" />
+            <Button android:id="@id/ButtonStop" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/BtnHideIndicator" android:layout_weight="1.0" />
+        </LinearLayout>
+        <Button android:id="@id/ButtonDonation" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/LabelDonate" />
+    </LinearLayout>
+</LinearLayout>

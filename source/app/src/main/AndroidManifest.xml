@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="rubberbigpepper.VolumeControl.redesign" platformBuildVersionCode="16" platformBuildVersionName="4.1.2-1425332" android:installLocation="internalOnly">
+  <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true" />
+  <application android:enabled="true" android:icon="@drawable/icon" android:label="@string/app_name" android:persistent="true" android:theme="@style/MyTheme">
+    <activity android:label="@string/app_name" android:name="rubberbigpepper.VolumeControl.MainWindow" android:enabled="true" android:exported="true">
+      <intent-filter>
+        <category android:name="android.intent.category.DEFAULT" />
+      </intent-filter>
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <activity-alias android:enabled="false" android:icon="@drawable/free_icon" android:label="@string/app_name" android:name="rubberbigpepper.VolumeControl.redesign.MainWindowFree" android:targetActivity="rubberbigpepper.VolumeControl.MainWindow" android:exported="true">
+            </activity-alias>
+    <activity-alias android:icon="@drawable/icon" android:label="@string/app_name" android:name="rubberbigpepper.VolumeControl.redesign.MainWindowPro" android:targetActivity="rubberbigpepper.VolumeControl.MainWindow" android:exported="true">
+            </activity-alias>
+    <service android:enabled="true" android:name="rubberbigpepper.CommonCtrl.VolumeControlService" />
+    <service android:enabled="true" android:name="rubberbigpepper.CommonCtrl.FakeService" />
+    <receiver android:name="rubberbigpepper.CommonCtrl.AndroidNeverKillBroadcast">
+      <intent-filter>
+        <action android:name="rubberbigpepper.VolumeControl.redesign.NeverKillVolumeService" />
+      </intent-filter>
+    </receiver>
+    <receiver android:name="rubberbigpepper.CommonCtrl.CRebootReceiver">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED" />
+      </intent-filter>
+    </receiver>
+    <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:name="com.google.android.gms.ads.AdActivity" />
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+  </application>
+  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+  <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+</manifest>

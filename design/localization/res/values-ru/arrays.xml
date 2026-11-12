@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <string-array name="Gravity">
+    <item>Вдоль левого края</item>
+    <item>Вдоль верхнего края</item>
+    <item>Вдоль правого края</item>
+    <item>Вдоль нижнего края</item>
+    <item>У левого края сверху</item>
+    <item>У левого края по центру</item>
+    <item>У левого края снизу</item>
+    <item>У верхнего края слева</item>
+    <item>У верхнего края по центру</item>
+    <item>У верхнего края справа</item>
+    <item>У правого края сверху</item>
+    <item>У правого края по центру</item>
+    <item>У правого края снизу</item>
+    <item>У нижнего края слева</item>
+    <item>У нижнего края по центру</item>
+    <item>У нижнего края справа</item>
+  </string-array>
+  <string-array name="TypeBar">
+    <item>Сплошная полоса</item>
+    <item>Столбики уровня</item>
+  </string-array>
+  <string-array name="StreamType">
+    <item>Автовыбор</item>
+    <item>Все каналы</item>
+    <item>Музыка и мультимедиа</item>
+    <item>Системные звуки</item>
+    <item>Звонок</item>
+    <item>Уведомления</item>
+    <item>Разговор</item>
+    <item>Будильник</item>
+    <item>Тоновый набор</item>
+  </string-array>
+  <string-array name="ActionOn0Volume">
+    <item>Не менять режим</item>
+    <item>Вибрация</item>
+    <item>Без звука</item>
+  </string-array>
+</resources>
