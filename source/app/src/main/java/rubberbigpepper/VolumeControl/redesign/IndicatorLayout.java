@@ -12,6 +12,7 @@ public final class IndicatorLayout {
         int length=context.getSharedPreferences("Common",0).getInt("Length",50);
         if(length<=100)return;
         int gravity=context.getSharedPreferences("Common",0).getInt("Gravity",0);
+        if(gravity==16)gravity=5;else if(gravity==17||gravity==18)gravity=11;
         Point size=new Point();
         ((WindowManager)context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getSize(size);
         boolean vertical=gravity==0||gravity==2||(gravity>=4&&gravity<=6)||(gravity>=10&&gravity<=12);
