@@ -70,12 +70,6 @@ APK устанавливается вручную на планшет или м�
 
 Подробное ТЗ: [`ТЗ.md`](ТЗ.md). История изменений: [`CHANGELOG.md`](CHANGELOG.md).
 
-## Исходный код
-
-Исходники приложения находятся в [`source/`](source/). Там лежат Java-код,
-ресурсы и манифест. Основа восстановлена из APK; изменения кандидата описаны в
-[истории изменений](CHANGELOG.md). Опубликованные APK находятся в [Releases](https://github.com/64kda/geely-coolray-volume-control/releases).
-
 ## Лицензия
 
 Проект распространяется по [PolyForm Noncommercial License 1.0.0](LICENSE).
