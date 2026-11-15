@@ -119,6 +119,23 @@ public final class MainUi {
         right.addView(label("Цвета и положение — на вкладке «Шкала». Удержание шкалы открывает инструменты звука.",17,MUTED));
         LinearLayout.LayoutParams rightParams=new LinearLayout.LayoutParams(compact?-1:0,-2,compact?0:1);if(compact)rightParams.topMargin=dp(16);pages[0].addView(right,rightParams);
         for(int i=0;i<=10;i++)add(1,rows.get(i));
+        final SharedPreferences dualPrefs=a.getSharedPreferences("Common",0);
+        final CheckBox dualTogether=new CheckBox(a);dualTogether.setText("Показывать обе шкалы при регулировке");style(dualTogether);
+        dualTogether.setChecked(dualPrefs.getBoolean("Dual scale together",false));
+        dualTogether.setEnabled(dualPrefs.getInt("Gravity",0)==18);pages[1].addView(dualTogether);
+        dualTogether.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){public void onCheckedChanged(CompoundButton b,boolean checked){
+            if(!dualPrefs.edit().putBoolean("Dual scale together",checked).commit()){Toast.makeText(a,"Не удалось сохранить настройку",Toast.LENGTH_LONG).show();return;}
+            if(!resetting)showScale.performClick();
+        }});
+        final Spinner placement=(Spinner)settings[5];
+        final AdapterView.OnItemSelectedListener previousPlacement=placement.getOnItemSelectedListener();
+        placement.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+            public void onNothingSelected(AdapterView<?> p){if(previousPlacement!=null)previousPlacement.onNothingSelected(p);}
+            public void onItemSelected(AdapterView<?> p,View v,int pos,long id){
+                if(previousPlacement!=null)previousPlacement.onItemSelected(p,v,pos,id);
+                dualTogether.setEnabled(pos==18);
+            }
+        });
         pages[1].addView(label("Положение процента",20,INK));
         percentPosition=new Spinner(a);
         ArrayAdapter<String> positions=new ArrayAdapter<String>(a,android.R.layout.simple_spinner_item,
