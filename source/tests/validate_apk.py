@@ -9,7 +9,7 @@ logger.remove()
 from androguard.core.apk import APK
 from androguard.core.dex import DEX
 file=Path(sys.argv[1]) if len(sys.argv)>1 else BASE/'output/VolumeControl-2.7.1-redesign12-startup-autohide-api18.apk';a=APK(str(file));package=a.get_package();resources=a.get_android_resources()
-expected_code='40' if 'redesign17' in file.name else '39' if 'redesign16' in file.name else '38' if 'redesign15' in file.name else '37' if 'redesign14' in file.name else '36' if 'redesign13' in file.name else '35'
+expected_code='43' if 'redesign20' in file.name else '42' if 'redesign19' in file.name else '41' if 'redesign18' in file.name else '40' if 'redesign17' in file.name else '39' if 'redesign16' in file.name else '38' if 'redesign15' in file.name else '37' if 'redesign14' in file.name else '36' if 'redesign13' in file.name else '35'
 assert package=='rubberbigpepper.VolumeControl.redesign'
 assert a.get_min_sdk_version()=='18'
 assert a.get_androidversion_code()==expected_code
@@ -21,8 +21,13 @@ manifest=a.get_android_manifest_xml()
 android='{http://schemas.android.com/apk/res/android}'
 launchers=[node for node in manifest.iter() if node.tag in ('activity','activity-alias')
     and any(c.get(android+'name')=='android.intent.category.LAUNCHER' for c in node.iter('category'))]
-assert len(launchers)==1 and launchers[0].get(android+'name')=='rubberbigpepper.VolumeControl.MainWindow'
-assert launchers[0].get(android+'enabled')=='true'
+if expected_code in ['41','42','43']:
+    sys.path.insert(0,str(BASE/'source/tests'))
+    from check_launcher_icons import check_manifest
+    check_manifest(manifest, lambda value:a.get_android_resources().get_resource_xml_name(int(value[1:],16),package))
+else:
+    assert len(launchers)==1 and launchers[0].get(android+'name')=='rubberbigpepper.VolumeControl.MainWindow'
+    assert launchers[0].get(android+'enabled')=='true'
 assert manifest.get(android+'installLocation') in ('internalOnly','1')
 assert any(n.get(android+'name')=='android.permission.RECEIVE_BOOT_COMPLETED' for n in manifest.iter('uses-permission'))
 receiver=next(n for n in manifest.iter('receiver') if n.get(android+'name')=='rubberbigpepper.CommonCtrl.CRebootReceiver')
@@ -65,6 +70,6 @@ result={'file':file.name,'bytes':file.stat().st_size,'sha256':hashlib.sha256(fil
         'package':package,'version':a.get_androidversion_name(),'version_code':int(expected_code),'min_sdk':18,
         'target_sdk':a.get_target_sdk_version(),'original_resource_ids_preserved':True,
         'russian_strings_verified':len(translations)-5,'publisher_strings_cleared':5,'single_dex_035':True,'icon_verified':True,'zip_integrity':'passed',
-        'permanent_launcher':True,'boot_receiver_and_permission':True,'icon_switch_disabled':True}
-(BASE/('output/apk-validation-dual-scale.json' if expected_code in ['39','40'] else 'output/apk-validation-guard-feedback.json' if expected_code=='38' else 'output/apk-validation-f02.json' if expected_code=='37' else 'output/apk-validation-f01.json' if expected_code=='36' else 'output/apk-validation-startup-autohide.json')).write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
+        'real_activity_preserved':True,'boot_receiver_and_permission':True,'legacy_icon_switch_disabled':True,'selectable_icons':4 if expected_code in ['41','42','43'] else 1}
+(BASE/('output/apk-validation-icons.json' if expected_code in ['41','42','43'] else 'output/apk-validation-dual-scale.json' if expected_code in ['39','40'] else 'output/apk-validation-guard-feedback.json' if expected_code=='38' else 'output/apk-validation-f02.json' if expected_code=='37' else 'output/apk-validation-f01.json' if expected_code=='36' else 'output/apk-validation-startup-autohide.json')).write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
 print(json.dumps(result,ensure_ascii=False,indent=2))

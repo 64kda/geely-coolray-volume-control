@@ -1,31 +1,30 @@
-# 2.7.1 redesign15
+# 2.7.1-redesign20 — предварительная сборка
 
-## [⬇️ Скачать APK напрямую](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign15/VolumeControl-2.7.1-redesign15-guard-feedback-api18.apk)
+[Скачать APK](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign20/VolumeControl-2.7.1-redesign20-github-candidate.apk)
 
-Это тестовая сборка регулятора громкости для Geely Coolray.
+В этой версии можно выбрать одну из четырёх иконок приложения: 6, 7, 8 или 10. По умолчанию выбрана иконка 7. Выбор перенесён в раздел «Работа приложения», а дублирующая кнопка в верхней части экрана удалена. Также в интерфейсе добавлены кнопки перехода к микшеру и эквалайзеру. Оба окна открыты на эмуляторе API 18; работу аудио не проверяли. Встроенное переключение между панелями закрывает окно; чтобы сменить панель, используйте кнопку на главном экране.
 
-Что изменилось в этой версии:
+В сборке сохранены шкалы с двух сторон экрана и совместное автоскрытие, добавленные после redesign15. Эти функции прошли локальные проверки; redesign17 ранее проверялся на эмуляторе API 18. Redesign20 установлена на API18-эмулятор для проверки отображения панелей. Реакция аудио и работа на магнитоле не проверены.
 
-- добавлена защита от случайного касания с задержкой 250, 500 или 1000 мс;
-- после удержания шкала переходит на относительное движение, поэтому громкость не прыгает к пальцу;
-- короткий тап, быстрый свайп, второй палец и отменённый жест не меняют уровень;
-- подтверждённое удержание можно подсветить мягким контуром и отдельно отключить эту подсветку;
-- сохранены автоскрытие, настройки шкалы, EqMix и исправление чтения текущей громкости.
+APK: `2.7.1-redesign20`, `versionCode 43`, Android 4.3/API 18 и выше. Сертификат подписи совпадает с опубликованной redesign15. APK с другим сертификатом поверх установленной версии не обновится.
 
-APK проверен локальными тестами, проверками DEX и подписи. Кандидат проверялся на планшете и реальной магнитоле с установленным Community-патчем; отдельные автомобильные сценарии могут требовать дополнительной проверки.
+Размер APK: 2 680 513 байт. SHA-256: `0e955d23540666a06b469b36a5f5c874e752ed73dc3534d35f8cef37ee78f201`.
 
-Требования: Android 4.3/API 18 и разрешение показа поверх других окон. Если на устройстве уже стоит сборка с другой подписью, обновление поверх неё может не установиться.
+## Скриншоты redesign20 — Android 4.3/API 18
 
-## Скриншоты
+![Микшер redesign20](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign20/R20-11-mixer.png)
 
-![Настройки](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign15/S-01-settings.png)
+![Эквалайзер redesign20](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign20/R20-12-equalizer.png)
 
-![Удержание подтверждено](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign15/S-04-held.png)
+Снимки шкал ниже относятся к redesign17 и оставлены для сравнения.
 
-![Подсветка выключена](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign15/S-05-no-hold-highlight.png)
+![Две шкалы, redesign17](https://raw.githubusercontent.com/64kda/geely-coolray-volume-control/3a39aacc5679fa53f05dc67789ed6aceb17d48f0/docs/screenshots/R17-02-both.png)
 
-![Микшер](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign15/S-03-mixer.png)
+![Эскиз вариантов иконок](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign20/production-preview.png)
 
-![Эквалайзер](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign15/S-06-equalizer.png)
+## Проверки и ограничения
 
-![Настройки защиты](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign15/S-08-settings-guard.png)
+- локальные тесты логики шкал, защиты от касаний, автоскрытия, видимости иконок и APK прошли;
+- подпись APK проверена для схем v1, v2 и v3;
+- окна микшера и эквалайзера открыты на API18-эмуляторе и сняты; внутренняя вкладка переключения закрывает окно — используйте кнопку соответствующей панели на главном экране; аудио и магнитола не проверены;
+- при смене иконки ярлык на домашнем экране может переместиться или устареть; это поведение не исправлено и не проверено на лаунчере магнитолы.
