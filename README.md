@@ -29,7 +29,7 @@
 |---|---|
 | ![Подтверждённое удержание, redesign17](docs/screenshots/R17-05-held.png) | ![Автоскрытие, redesign17](docs/screenshots/R17-06-hidden.png) |
 
-[Эскиз вариантов иконок (не снимок приложения)](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign20/icon-options-preview.png).
+[Эскиз вариантов иконок (не снимок приложения)](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign20/production-preview.png).
 
 [Условия съёмки и остальные снимки](docs/SCREENSHOTS-redesign17.md).
 

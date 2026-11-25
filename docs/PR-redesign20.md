@@ -16,7 +16,7 @@
 
 ![Настройки шкалы redesign17](https://raw.githubusercontent.com/64kda/geely-coolray-volume-control/3a39aacc5679fa53f05dc67789ed6aceb17d48f0/docs/screenshots/R17-01-settings.png)
 
-![Эскиз вариантов иконок](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign20/icon-options-preview.png)
+![Эскиз вариантов иконок](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign20/production-preview.png)
 
 ## Ограничения
 
