@@ -28,6 +28,8 @@ public final class MainUi {
     private Spinner hideDelay,hideFade;
     private CheckBox guardToggle,guardFeedback;
     private Spinner guardHold;
+    private LauncherIcons launcherIcons;
+    private final Button[] iconButtons=new Button[4];
     private final int[] hideDelays={1000,2000,3000,5000,10000},hideFades={0,150,300,600};
     private int percentChoice;
     private static boolean resetting;
@@ -37,6 +39,7 @@ public final class MainUi {
     private final String[] titles={"Управление","Шкала","Звук","Эквалайзер","Работа приложения","О приложении"};
     public static void install(Activity activity){new MainUi(activity);}
     public static void prepare(Activity activity){
+        new LauncherIcons(activity).restore();
         android.content.SharedPreferences prefs=activity.getSharedPreferences("Common",0);
         if(!prefs.contains("Main color"))prefs.edit().putInt("Main color",GREEN).putInt("Background color",0xe0555555)
             .putInt("Active color",GREEN).putInt("Inactive color",SELECTED).putInt("Size",26).commit();
@@ -70,7 +73,6 @@ public final class MainUi {
         LinearLayout header=new LinearLayout(a);header.setGravity(Gravity.CENTER_VERTICAL);
         TextView name=label("Регулятор громкости",compact?22:26,INK);name.setTypeface(null,1);
         header.addView(name,new LinearLayout.LayoutParams(0,dp(52),1));
-        TextView badge=label("Настройки",17,MUTED);if(!compact)header.addView(badge);
         root.addView(header,new LinearLayout.LayoutParams(-1,dp(56)));
         HorizontalScrollView nav=new HorizontalScrollView(a);nav.setHorizontalScrollBarEnabled(false);
         tabs=new LinearLayout(a);nav.addView(tabs,new HorizontalScrollView.LayoutParams(-2,-1));root.addView(nav,new LinearLayout.LayoutParams(-1,dp(58)));
@@ -104,11 +106,7 @@ public final class MainUi {
         markScaleChoice(true);
         pages[0].addView(commands);
         LinearLayout effects=new LinearLayout(a);
-        for(int i=0;i<2;i++){final boolean mixer=i==0;Button b=action(mixer?"Микшер":"Эквалайзер");
-            b.setOnClickListener(new View.OnClickListener(){public void onClick(View v){
-                Intent intent=new Intent();intent.setClassName(a,"rubberbigpepper.CommonCtrl.VolumeControlService");
-                intent.setAction(mixer?"local.volumecontrol.redesign.MIXER":"local.volumecontrol.redesign.EQUALIZER");a.startService(intent);
-            }});LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(0,dp(58),1);if(i==0)lp.rightMargin=dp(12);lp.topMargin=dp(10);effects.addView(b,lp);}
+        for(int i=0;i<2;i++){final boolean mixer=i==0;Button b=effectButton(mixer?"Микшер":"Эквалайзер",mixer);LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(0,dp(58),1);if(i==0)lp.rightMargin=dp(12);lp.topMargin=dp(10);effects.addView(b,lp);}
         pages[0].addView(effects);
         LinearLayout left=new LinearLayout(a);left.setOrientation(1);left.setPadding(dp(20),dp(20),dp(20),dp(20));left.setBackgroundDrawable(surface(SURFACE,20));
         while(pages[0].getChildCount()>0){View child=pages[0].getChildAt(0);pages[0].removeViewAt(0);left.addView(child);}
@@ -154,13 +152,16 @@ public final class MainUi {
         });
         pages[1].addView(percentPosition,new LinearLayout.LayoutParams(-1,dp(58)));
         pages[1].addView(label("Выберите левую или правую шкалу в расположении выше. Процент следует за ней. Максимальная длина увеличена для вертикальной шкалы; ширина сохранена. Рядом со шкалой приложение показывает свой процент вместо системного уведомления.",17,MUTED));
+        addEffectEntry(2, "Открыть микшер", true);
         add(2,rows.get(12));add(2,rows.get(13));add(2,rows.get(14));
         pages[2].addView(label("Аудиоканал выбирается на вкладке «Управление».",17,MUTED));
+        addEffectEntry(3, "Открыть эквалайзер", false);
         add(3,rows.get(17));add(3,rows.get(18));
         pages[3].addView(label("Без защиты удерживайте шкалу более 3 секунд или коснитесь её несколькими пальцами. С защитой удерживайте один палец 3 секунды плюс время подтверждения, не начиная регулировку. В окне доступны эквалайзер и микшер.",18,MUTED));
         // The original form is detached now; use the View captured before rebuilding it.
         CheckBox boot=(CheckBox)all[19];
         boot.setText("Автозапуск с магнитолой");
+        iconControls();
         add(4,rows.get(19));
         pages[4].addView(label("Включает регулятор после полной загрузки Android. После установки откройте приложение один раз. Если магнитола управляет автозапуском отдельно, разрешите его также в её настройках. Выход из сна зависит от прошивки магнитолы.",17,MUTED));
         add(4,rows.get(16));
@@ -176,6 +177,21 @@ public final class MainUi {
         });
         hideChoicesEnabled();
         pages[5].addView(label("Регулятор громкости",28,INK));pages[5].addView(label("Версия 2.7.1 · новое оформление\nДля Android 4.3 и новее\nИсходные настройки и аудиоканалы сохранены.",19,MUTED));
+        Button github = action("Открыть проект на GitHub");
+        github.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, android.net.Uri.parse(
+                    "https://github.com/64kda/geely-coolray-volume-control"));
+                try {
+                    a.startActivity(intent);
+                } catch (ActivityNotFoundException unavailable) {
+                    Toast.makeText(a, "Нет приложения для открытия ссылки", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        LinearLayout.LayoutParams githubLayout = new LinearLayout.LayoutParams(-2, dp(50));
+        githubLayout.topMargin = dp(12);
+        pages[5].addView(github, githubLayout);
         // The old publisher's donation action is not an audio setting.
         detach(rows.get(22));rows.get(22).setVisibility(View.GONE);
         for(View v:extra){detach(v);pages[5].addView(v);}
@@ -184,6 +200,39 @@ public final class MainUi {
         root.postDelayed(new Runnable(){public void run(){if(root.getWindowToken()!=null){if(!touching)refresh();root.postDelayed(this,1000);}}},1000);
     }
     private void detach(View v){if(v.getParent() instanceof ViewGroup)((ViewGroup)v.getParent()).removeView(v);}
+    private void iconControls(){
+        launcherIcons=new LauncherIcons(a);
+        TextView heading=label("Иконка приложения",22,INK);heading.setPadding(0,dp(20),0,dp(10));pages[4].addView(heading);
+        final int[] ids=IconSelection.ids();
+        final String[] names={"Регулятор","Уровни","Динамик","Слайдер"};
+        LinearLayout row=null;
+        for(int index=0;index<ids.length;index++){
+            if(index%2==0){row=new LinearLayout(a);pages[4].addView(row,new LinearLayout.LayoutParams(-1,-2));}
+            final int id=ids[index];Button button=action(names[index]);iconButtons[index]=button;
+            Drawable image=launcherIcons.preview(id);image.setBounds(0,0,dp(64),dp(64));
+            button.setCompoundDrawables(null,image,null,null);button.setCompoundDrawablePadding(dp(8));
+            button.setPadding(dp(12),dp(14),dp(12),dp(12));button.setGravity(Gravity.CENTER);
+            button.setOnClickListener(new View.OnClickListener(){public void onClick(View view){
+                if(id==launcherIcons.selected())return;
+                boolean applied=launcherIcons.select(id);refreshIconChoices();
+                Toast.makeText(a,applied?"Иконка изменена. Меню магнитолы может обновиться с задержкой.":"Не удалось изменить иконку. Попробуйте ещё раз.",Toast.LENGTH_LONG).show();
+            }});
+            LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(0,dp(144),1);
+            lp.bottomMargin=dp(10);if(index%2==0)lp.rightMargin=dp(10);row.addView(button,lp);
+        }
+        pages[4].addView(label("Меняется значок в меню приложений. По умолчанию — «Регулятор». Если ярлык на рабочем столе не обновился, добавьте его из меню заново.",17,MUTED));
+        refreshIconChoices();
+    }
+    private void refreshIconChoices(){
+        int[] ids=IconSelection.ids();String[] names={"Регулятор","Уровни","Динамик","Слайдер"};
+        for(int i=0;i<ids.length;i++){
+            boolean chosen=launcherIcons.selected()==ids[i];Button button=iconButtons[i];
+            button.setText(names[i]+(chosen?" · Выбрана":""));button.setSelected(chosen);
+            button.setContentDescription("Иконка "+names[i]+(chosen?", выбрана":""));
+            GradientDrawable background=surface(chosen?SELECTED:SURFACE,12);
+            background.setStroke(dp(2),chosen?GREEN:0xff414141);button.setBackgroundDrawable(background);
+        }
+    }
     private void addResetActions(final int page){
         LinearLayout destination=page==0?(LinearLayout)pages[0].getChildAt(0):pages[page];
         TextView note=label("Сброс затрагивает только настройки этой вкладки. Громкость сохраняется. Для обновления плавающей шкалы нажмите «Применить к шкале».",17,MUTED);
@@ -196,6 +245,10 @@ public final class MainUi {
         LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(-1,dp(58));lp.topMargin=dp(8);destination.addView(apply,lp);
     }
     private void resetPage(int page){
+        if(page==4&&!launcherIcons.select(IconSelection.DEFAULT)){
+            Toast.makeText(a,"Не удалось сбросить иконку",Toast.LENGTH_LONG).show();return;
+        }
+        if(page==4)refreshIconChoices();
         SharedPreferences prefs=a.getSharedPreferences("Common",0);
         SharedPreferences.Editor editor=prefs.edit();
         for(Map.Entry<String,Object> entry:TabDefaults.forPage(page,prefs.getAll().keySet()).entrySet()){
@@ -373,6 +426,28 @@ public final class MainUi {
         states.addState(new int[]{},normal);return states;
     }
     private void styleAction(Button b){b.setTextColor(INK);b.setBackgroundDrawable(actionBackground(SELECTED));}
+    private void addEffectEntry(int page, String title, boolean mixer) {
+        Button button = effectButton(title, mixer);
+        button.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
+        button.setPadding(dp(16), 0, dp(16), 0);
+        LinearLayout.LayoutParams layout = new LinearLayout.LayoutParams(-1, dp(56));
+        layout.bottomMargin = dp(12);
+        pages[page].addView(button, layout);
+    }
+
+    private Button effectButton(String title, final boolean mixer) {
+        Button button = action(title);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClassName(a, "rubberbigpepper.CommonCtrl.VolumeControlService");
+                intent.setAction(mixer ? "local.volumecontrol.redesign.MIXER" : "local.volumecontrol.redesign.EQUALIZER");
+                a.startService(intent);
+            }
+        });
+        return button;
+    }
+
     private Button action(String s){Button b=new Button(a);b.setText(s);b.setTextSize(18);b.setPadding(dp(16),dp(4),dp(16),dp(4));styleAction(b);return b;}
     private void styleSlider(SeekBar s){
         LayerDrawable layers=new LayerDrawable(new Drawable[]{new TrackIcon(false,dp(7)),new TrackIcon(true,dp(7))});layers.setId(0,android.R.id.background);layers.setId(1,android.R.id.progress);s.setProgressDrawable(layers);

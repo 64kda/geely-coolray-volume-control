@@ -133,9 +133,13 @@ s+='''
 '''
 s=re.sub(r'\.method protected onDraw\(Landroid/graphics/Canvas;\)V.*?\.end method',
 '''.method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 0
+    .locals 1
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
+    invoke-static {p1, p0}, Lrubberbigpepper/VolumeControl/redesign/EffectsPanel;->draw(Landroid/graphics/Canvas;Lrubberbigpepper/CommonCtrl/ZoomView;)Z
+    move-result v0
+    if-nez v0, :effects_drawn
     invoke-static {p1, p0}, Lrubberbigpepper/VolumeControl/redesign/ScaleRenderer;->draw(Landroid/graphics/Canvas;Lrubberbigpepper/CommonCtrl/ZoomView;)V
+    :effects_drawn
     return-void
 .end method''',s,count=1,flags=re.S)
 save(zoom,s)
@@ -252,6 +256,19 @@ injection='''    # Explicit user actions from the new main screen.
 '''
 s=s[:position]+injection+s[position:]
 s=s.replace('%.0f Hz','%.0f Гц').replace('%.0f dB','%.0f дБ')
+# Style effect controls after the service attaches its listeners.
+for name, hook in (
+    ('CreateAllMixViews', '''    invoke-static/range {p1 .. p1}, Lrubberbigpepper/VolumeControl/redesign/EffectsPanel;->mixer(Landroid/widget/LinearLayout;)V
+'''),
+    ('CreateAllEqViews', '''    move-object/from16 v0, p0
+    iget-object v1, v0, Lrubberbigpepper/CommonCtrl/VolumeControlService;->m_cEqualizer:Ljava/lang/Object;
+    move-object/from16 v0, p1
+    invoke-static {v0, v1}, Lrubberbigpepper/VolumeControl/redesign/EffectsPanel;->equalizer(Landroid/widget/LinearLayout;Ljava/lang/Object;)V
+'''),
+):
+    begin=s.index('.method private '+name+'(Landroid/widget/LinearLayout;)V')
+    end=s.index('.end method',begin)
+    s=s[:begin]+s[begin:end].replace('    return-void',hook+'    return-void')+s[end:]
 save(service,s)
 
 

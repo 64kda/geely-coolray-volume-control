@@ -1,0 +1,5 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="local.volumecontrol.icontests">
+  <uses-sdk android:minSdkVersion="18" android:targetSdkVersion="18"/>
+  <application android:label="Volume icon tests"><uses-library android:name="android.test.runner"/></application>
+  <instrumentation android:name="android.test.InstrumentationTestRunner" android:targetPackage="rubberbigpepper.VolumeControl.redesign"/>
+</manifest>

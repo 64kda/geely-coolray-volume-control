@@ -28,6 +28,14 @@ public class OverlayVisibilityTest {
   ok(((WindowManager.LayoutParams)left.params).x==17);
  }
  ok(wm.updates==10);
+ // A root previously faded through View alpha must not remain doubly transparent.
+ left.alpha=.2f;OverlayVisibility.apply(wm,left,1f);ok(left.alpha==1f);ok(((WindowManager.LayoutParams)left.params).alpha==1f);
+ for(float factor:new float[]{-2,3}){
+  float expected=factor<0?0:1;
+  OverlayVisibility.apply(wm,left,factor);OverlayVisibility.apply(wm,child,factor);
+  ok(((WindowManager.LayoutParams)left.params).alpha==expected);ok(child.alpha==expected);
+  ok(((WindowManager.LayoutParams)left.params).x==17);
+ }
  final WindowManager timerWm=new WindowManager();final View bar=new View(),label=new View();bar.params=new WindowManager.LayoutParams();label.params=new WindowManager.LayoutParams();
  Timer timer=new Timer();rubberbigpepper.VolumeControl.redesign.AutoHideState state=new rubberbigpepper.VolumeControl.redesign.AutoHideState(timer,timer,
  new rubberbigpepper.VolumeControl.redesign.AutoHideState.Output(){public void visibility(float factor){OverlayVisibility.apply(timerWm,bar,factor);OverlayVisibility.apply(timerWm,label,factor);}},true,2000,300);

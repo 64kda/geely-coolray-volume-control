@@ -20,6 +20,7 @@ try {
     }
     & $taskPython source/tests/check_overlay_visibility.py
     if ($LASTEXITCODE -ne 0) { throw 'Root overlay auto-hide regression failed' }
+    Copy-Item source/app/src/main/java/rubberbigpepper/VolumeControl/redesign/EffectsPanel.java rebuild/java/rubberbigpepper/VolumeControl/redesign/EffectsPanel.java
     $nativeJava = Get-ChildItem rebuild/java -Filter '*.java' -Recurse | Select-Object -ExpandProperty FullName
     & $taskJavac -source 8 -target 8 -Xlint:-options -encoding UTF-8 -classpath "rebuild/stub-classes;$taskSdk/platforms/android-18/android.jar" -d rebuild/classes $nativeJava
     if ($LASTEXITCODE -ne 0) { throw 'Native UI compilation failed' }

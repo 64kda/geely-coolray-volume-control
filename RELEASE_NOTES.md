@@ -1,31 +1,28 @@
-# 2.7.1 redesign15
+# 2.7.1-redesign20 — предварительная сборка
 
-## [⬇️ Скачать APK напрямую](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign15/VolumeControl-2.7.1-redesign15-guard-feedback-api18.apk)
+[Скачать APK](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign20/VolumeControl-2.7.1-redesign20-github-candidate.apk)
 
-Это тестовая сборка регулятора громкости для Geely Coolray.
+В этой версии можно выбрать одну из четырёх иконок приложения: 6, 7, 8 или 10. По умолчанию выбрана иконка 7. Выбор перенесён в раздел «Работа приложения», а дублирующая кнопка в верхней части экрана удалена. Также в интерфейсе добавлены кнопки перехода к микшеру и эквалайзеру; их запуск на устройстве пока не проверен.
 
-Что изменилось в этой версии:
+В сборке сохранены шкалы с двух сторон экрана и совместное автоскрытие, добавленные после redesign15. Эти функции прошли локальные проверки; redesign17 ранее проверялся на эмуляторе API 18. Новую redesign20 установить на эмулятор или магнитолу не удалось, поэтому её интерфейс и поведение при запуске пока не подтверждены.
 
-- добавлена защита от случайного касания с задержкой 250, 500 или 1000 мс;
-- после удержания шкала переходит на относительное движение, поэтому громкость не прыгает к пальцу;
-- короткий тап, быстрый свайп, второй палец и отменённый жест не меняют уровень;
-- подтверждённое удержание можно подсветить мягким контуром и отдельно отключить эту подсветку;
-- сохранены автоскрытие, настройки шкалы, EqMix и исправление чтения текущей громкости.
+APK: `2.7.1-redesign20`, `versionCode 43`, Android 4.3/API 18 и выше. Сертификат подписи совпадает с опубликованной redesign15. APK с другим сертификатом поверх установленной версии не обновится.
 
-APK проверен локальными тестами, проверками DEX и подписи. Кандидат проверялся на планшете и реальной магнитоле с установленным Community-патчем; отдельные автомобильные сценарии могут требовать дополнительной проверки.
-
-Требования: Android 4.3/API 18 и разрешение показа поверх других окон. Если на устройстве уже стоит сборка с другой подписью, обновление поверх неё может не установиться.
+Размер APK: 2 680 513 байт. SHA-256: `0e955d23540666a06b469b36a5f5c874e752ed73dc3534d35f8cef37ee78f201`.
 
 ## Скриншоты
 
-![Настройки](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign15/S-01-settings.png)
+Эти снимки сделаны на redesign17 и показывают работу шкал. Они не иллюстрируют новые настройки иконок redesign20.
 
-![Удержание подтверждено](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign15/S-04-held.png)
+![Две шкалы, redesign17](https://raw.githubusercontent.com/64kda/geely-coolray-volume-control/3a39aacc5679fa53f05dc67789ed6aceb17d48f0/docs/screenshots/R17-02-both.png)
 
-![Подсветка выключена](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign15/S-05-no-hold-highlight.png)
+![Настройки шкалы, redesign17](https://raw.githubusercontent.com/64kda/geely-coolray-volume-control/3a39aacc5679fa53f05dc67789ed6aceb17d48f0/docs/screenshots/R17-01-settings.png)
 
-![Микшер](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign15/S-03-mixer.png)
+![Варианты иконок, эскиз](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign20/icon-options-preview.png)
 
-![Эквалайзер](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign15/S-06-equalizer.png)
+## Проверки и ограничения
 
-![Настройки защиты](https://github.com/64kda/geely-coolray-volume-control/releases/download/v2.7.1-redesign15/S-08-settings-guard.png)
+- локальные тесты логики шкал, защиты от касаний, автоскрытия, видимости иконок и APK прошли;
+- подпись APK проверена для схем v1, v2 и v3;
+- установка и runtime-проверка redesign20 на API 18, проверка на магнитоле и свежие снимки интерфейса не выполнены;
+- при смене иконки ярлык на домашнем экране может переместиться или устареть; это поведение не исправлено и не проверено на лаунчере магнитолы.

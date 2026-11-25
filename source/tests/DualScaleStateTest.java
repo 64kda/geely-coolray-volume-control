@@ -26,6 +26,24 @@ public final class DualScaleStateTest {
         long old=s.timerToken(2);s.external(9,15);check(!s.expire(2,old));
         s.configure(1,1,false);check(!s.confirm(2,0));check(!s.visible(2));
         check(DualScaleState.safeMode(99,2)==2);check(DualScaleState.safeMode(99,99)==1);
+        // Old timers and fingers must not affect a newly selected placement.
+        for(int mode=1;mode<=3;mode++)for(boolean joint:new boolean[]{false,true}){
+            DualScaleState changed=new DualScaleState(3,1,true,15,7);
+            check(changed.confirm(1,12));long oldLeft=changed.timerToken(1),oldRight=changed.timerToken(2);
+            changed.configure(mode,1,joint);
+            check(!changed.owns(1,12));check(!changed.release(1,12));
+            check(!changed.visible(1)&&!changed.visible(2));
+            int side=mode==2?2:1;
+            check(changed.confirm(side,13));
+            check(!changed.expire(1,oldLeft)&&!changed.expire(2,oldRight));
+            check(changed.owns(side,13));
+            if(mode==3&&joint)check(!changed.expire(side==1?2:1,changed.timerToken(side==1?2:1)));
+            long beforeSleep=changed.timerToken(side);
+            changed.sleep();changed.external(14,15);
+            check(!changed.visible(1)&&!changed.visible(2));check(!changed.confirm(side,14));
+            changed.wake(mode,1,joint,14,15);check(changed.confirm(side,15));
+            check(!changed.expire(side,beforeSleep));check(changed.owns(side,15));
+        }
         System.out.println("DualScaleState PASS: modes, confirmed ownership, pointer release, visibility, stale timers, sleep, fallback, bounds");
     }
 }
